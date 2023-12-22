@@ -14,7 +14,6 @@ fun n temp_number =
     if (n > (length $ concatMap divisors $ [temp_number]) ) then fun n (temp_number + 1) 
     else 
         print temp_number
-        --print $ concatMap divisors $ [temp_number]
     
 main = do
     putStrLn "Input n"
