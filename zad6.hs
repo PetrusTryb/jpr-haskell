@@ -6,8 +6,7 @@ pitagorejską bo wszystkie jej wartości mają wspólny dzielnik równy 2. Jeśl
 trójkę pitagorejską dla największego możliwego m gdzie m < n.
 -}
 
---triplets :: Int -> [(Int, Int, Int)]
---triplets d = [(a,b,c) | a <- [1..d], b <- [a..d], c <- [b..d], a^2 + b^2 == c^2]
+
 
 gcda a b
     |    a==b = a
@@ -18,14 +17,6 @@ triplets :: Int -> [(Int, Int, Int)]
 triplets n = [(a,b,c) | a <- [1..n], b <- [a..n], c <- [b..n], a^2 + b^2 == c^2  && (gcda (gcda a b) c) == 1 && (a + b + c == n)] 
 triplets_almost n = [(a,b,c) | a <- [1..n], b <- [a..n], c <- [b..n], a^2 + b^2 == c^2  && (gcda (gcda a b) c) == 1 && (a + b + c < n)] 
 
-first :: (a, b, c) -> a
-first (a, _, _) = a
-
-second :: (a, b, c) -> b
-second (_, b, _) = b
-
-third :: (a, b, c) -> c
-third (_, _, c) = c
 
 last' :: [a] -> a
 last' ys = foldl1 (\_ -> \x -> x) ys
